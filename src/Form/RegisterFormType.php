@@ -2,7 +2,8 @@
 
 namespace App\Form;
 
-use App\Entity\User;
+use App\Entity\Membre;
+use phpDocumentor\Reflection\PseudoType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -17,21 +18,20 @@ class RegisterFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('pseudo', TextType::class, [
-                'label' =>'Pseudo'
+            ->add('email', EmailType::class, [
+                'label' =>'E-mail'
             ])
-            ->add('mdp',  PasswordType::class, [
+            ->add('password', PasswordType::class, [
                 'label' =>'Mot de passe'
             ])
-
+            ->add('pseudo',TextType::class, [
+                'label' =>'Pseudo'
+            ] )
             ->add('nom', TextType::class, [
-                'label' =>'Nom'
+                'label' => 'Nom'
             ])
             ->add('prenom', TextType::class, [
                 'label' =>'Prenom'
-            ])
-            ->add('email', EmailType::class, [
-                'label' =>'E-mail'
             ])
             ->add('civilite', ChoiceType::class, [
                 'label' => 'Sexe',
@@ -43,25 +43,24 @@ class RegisterFormType extends AbstractType
                 'choice_attr' => [
                   "Homme" => ['selected' => true],
                 ],
-                
             ])
-
             ->add('submit', SubmitType::class, [
-                'label' => 'Valider',
-                'validate' => false,
-                'attr' => [
-                    'class' => 'd-block col-3 my-3 mx-auto btn btn-success'
-                ]
+                    'label' => 'Valider',
+                    'validate' => false,
+                    'attr' => [
+                        'class' => 'd-block col-3 my-3 mx-auto btn btn-success'
+                    ]
             ])
     
-        ;
+        
+            ;
 
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => User::class,
+            'data_class' => Membre::class,
         ]);
     }
 }
