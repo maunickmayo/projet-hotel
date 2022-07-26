@@ -3,7 +3,6 @@
 namespace App\Form;
 
 use App\Entity\Membre;
-use phpDocumentor\Reflection\PseudoType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
