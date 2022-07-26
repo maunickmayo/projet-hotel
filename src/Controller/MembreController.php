@@ -50,16 +50,6 @@ class MembreController extends AbstractController
 
 
    
-      /**
-     * @Route("/profile/mon-espace-perso", name="liste_membre", methods={"GET"})
-     */
-    public function showMembre(Membre $membre): Response
-    {
-        return $this->render("membre/liste_membre.html.twig", [
-            'membre' => $membre
-        ]);
-    } # end function showArticle()
-
   
 
 }
