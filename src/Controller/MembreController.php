@@ -23,6 +23,8 @@ class MembreController extends AbstractController
        
         #1
         $membre = new Membre();
+        
+        
         #2
        $form = $this->createForm(RegisterFormType::class, $membre)
        ->handleRequest($request);
