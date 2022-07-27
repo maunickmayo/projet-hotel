@@ -2,8 +2,8 @@
 
 namespace App\Entity;
 
-use App\Repository\ChambreRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ChambreRepository;
 
 /**
  * @ORM\Entity(repositoryClass=ChambreRepository::class)
