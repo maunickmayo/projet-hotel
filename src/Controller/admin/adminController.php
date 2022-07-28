@@ -12,12 +12,13 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
+
 /**
  * @Route("/admin")  
  */
-class AdminController extends AbstractController
-{
 
+class Admin extends AbstractController
+{
     /**
      * @Route("/tableau-membre", name="show_dashboard", methods={"GET"})
      */
@@ -35,7 +36,7 @@ class AdminController extends AbstractController
        
     }
     
-    /**
+ /**
      * @Route("/ajouter-un-article", name="create_article", methods={"GET|POST"})
      */
     public function createChambre(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
