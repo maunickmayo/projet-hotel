@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}faire une réservation {% endblock %}
+
+{% block body %} 
+
+ {% if chambre is not defined %}
+<h1 class= "text-center my-4"> Réserver une chambre</h1>
+{% else %} 
+<h1 class=""text-center my-4""> modifier une réservation </h1>
+{% endif %} 
+
+
+<div class="row">
+
+    <div  class="col-8 mx-auto">
+    
+      {{ form_start(form) }}
+
+          <div class="row" >
+          
+                <div class="col-6">{{ form_row(form.dateArrivee) }}</div>
+                <div class="col-6">{{ form_row(form.dateDepart) }}</div>
+                <div class="col-6">{{ form_row(form.$prenom) }}</div>
+         </div>
+
+         {{ form_row(form.prixJournalier) }} 
+
+         {{ form_row(form.photo) }} 
+
+      {{ form_end(form) }}
+
+     </div>
+</div>

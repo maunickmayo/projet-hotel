@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des commandes{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-6 mx-auto">
+            {% include 'include/_flashes.html.twig' %}
+        </div>
+    </div>
+
+    <div class="row mx-auto">
+        <div class="col-4"></div>
+        <div class="col-4"><a href="#" class="btn btn-warning"><i class="fa fa-trash"></i> Voir les commandes</a> </div>
+    </div>
+
+    <div class="row">
+        <div class="col-10 mx-auto my-4">
+
+            <h2 class="text-center">Commandes</h2>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Commande</th>
+                    <th>Chambres</th>
+                    <th>Date_arrivée</th>
+                    <th>Date_depart</th>
+                    <th>Prix_total</th>
+                    <th>Prenom</th> 
+                    <th>Nom</th>   
+                    <th>Télephone</th>   
+                    <th>Email</th>   
+                    <th>date_enregistrement</th>   
+                    <th>Actions</th>   
+                </tr>
+                </thead>
+                <tbody>
+                
+                {% for commande in commandes %} 
+                <tr>
+                 <td>{{ commnde.id }}</td>
+                 <td>{{ chambre.titre }}</td>
+                 <td>{{ commande.date_arrivee}}</td>
+                 <td>{{ commnde.date_depart }}</td>
+                 <td>{{ commande.prix_total }}</td>
+                 <td>{{ commande.prenom }}</td>
+                 <td>{{ commande.nom }}</td>
+                 <td>{{ commande.telephone }}</td>
+                 <td>{{ commande.email }}</td>
+                 <td>{{ slider.createdAt | date('d/m/Y')}}</td>
+                 <td>{{ slider.updatedAt | date('d/m/Y')}}</td>
+                  <td>
+                            <a href="#" class="text-info" title="Rechercher"><i class="fa fa-edit"></i></a>
+                            <a href="#" class="text-info" title="Modifier une chambre"><i class="fa fa-edit"></i></a>
+                            <a href="#" class="text-danger" title="Supprimer une chambre" onclick="return confirm('Voulez-vous archiver ce slider ?')"><i class="fa fa-trash"></i></a>
+                        </td>
+                 
+                </tr>
+                {% endfor %}
+
+
+                
+                 <div class="row">
+          <div class="col-6 mx-auto">
+          
+         
+          <div class="row">
+             <div class="col"></div>
+           
+          </div>
+          
+
+          </div>
+     </div>
+     {% endblock %}

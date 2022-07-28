@@ -20,17 +20,17 @@ class Commande
     /**
      * @ORM\Column(type="date")
      */
-    private $date_arrivee;
+    private $dateArrivee;
 
     /**
      * @ORM\Column(type="date")
      */
-    private $date_depart;
+    private $dateDepart;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $prix_total;
+    private $prixTotal;
 
     /**
      * @ORM\Column(type="string", length=50)
@@ -52,11 +52,7 @@ class Commande
      */
     private $email;
 
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $date_enregistrement;
-
+    
     /**
      * @ORM\Column(type="datetime")
      */
@@ -72,11 +68,7 @@ class Commande
      */
     private $deletedAt;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $alias;
-
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -84,36 +76,36 @@ class Commande
 
     public function getDateArrivee(): ?\DateTimeInterface
     {
-        return $this->date_arrivee;
+        return $this->dateArrivee;
     }
 
-    public function setDateArrivee(\DateTimeInterface $date_arrivee): self
+    public function setDateArrivee(\DateTimeInterface $dateArrivee): self
     {
-        $this->date_arrivee = $date_arrivee;
+        $this->dateArrivee = $dateArrivee;
 
         return $this;
     }
 
     public function getDateDepart(): ?\DateTimeInterface
     {
-        return $this->date_depart;
+        return $this->dateDepart;
     }
 
-    public function setDateDepart(\DateTimeInterface $date_depart): self
+    public function setDateDepart(\DateTimeInterface $dateDepart): self
     {
-        $this->date_depart = $date_depart;
+        $this->date_depart = $dateDepart;
 
         return $this;
     }
 
     public function getPrixTotal(): ?int
     {
-        return $this->prix_total;
+        return $this->prixTotal;
     }
 
-    public function setPrixTotal(int $prix_total): self
+    public function setPrixTotal(int $prixTotal): self
     {
-        $this->prix_total = $prix_total;
+        $this->prix_total = $prixTotal;
 
         return $this;
     }
@@ -168,12 +160,12 @@ class Commande
 
     public function getDateEnregistrement(): ?\DateTimeInterface
     {
-        return $this->date_enregistrement;
+        return $this->dateEnregistrement;
     }
 
-    public function setDateEnregistrement(\DateTimeInterface $date_enregistrement): self
+    public function setDateEnregistrement(\DateTimeInterface $dateEnregistrement): self
     {
-        $this->date_enregistrement = $date_enregistrement;
+        $this->dateEnregistrement = $dateEnregistrement;
 
         return $this;
     }
@@ -214,15 +206,5 @@ class Commande
         return $this;
     }
 
-    public function getAlias(): ?string
-    {
-        return $this->alias;
-    }
-
-    public function setAlias(string $alias): self
-    {
-        $this->alias = $alias;
-
-        return $this;
-    }
+    
 }

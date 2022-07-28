@@ -30,11 +30,6 @@ class Slider
     /**
      * @ORM\Column(type="datetime")
      */
-    private $date_enregistrement;
-
-    /**
-     * @ORM\Column(type="datetime")
-     */
     private $createdAt;
 
     /**
@@ -72,18 +67,6 @@ class Slider
     public function setOrdre(int $ordre): self
     {
         $this->ordre = $ordre;
-
-        return $this;
-    }
-
-    public function getDateEnregistrement(): ?\DateTimeInterface
-    {
-        return $this->date_enregistrement;
-    }
-
-    public function setDateEnregistrement(\DateTimeInterface $date_enregistrement): self
-    {
-        $this->date_enregistrement = $date_enregistrement;
 
         return $this;
     }
