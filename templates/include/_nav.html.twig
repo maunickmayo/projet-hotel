@@ -27,6 +27,7 @@
           <a class="nav-link active" aria-current="page" href="{{ path('app_logout') }}">se déconnecter</a>
         </li>
         {% endif %}
+<<<<<<< HEAD
         {% if is_granted("ROLE_ADMIN") %}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -38,6 +39,9 @@
                     </li>
                 {% endif %}
 
+=======
+       
+>>>>>>> 8407dd5a3bf8da9686c696c20596105c6b476a42
         <li class="nav-item">
           <a class="nav-link" href="">Slider</a>
         </li>
@@ -74,6 +78,7 @@
           <a class="nav-link" href="#">Contact</a>
         </li>
       </ul>
+
       <ul class="navbar-nav me-2 mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link" href="#">Français</a>
@@ -82,6 +87,26 @@
           <a class="nav-link" href="#">English</a>
           </li>
         </ul>
+        
     </div>
+    {% if is_granted("ROLE_ADMIN") %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Espace Admin
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{{ path('show_dashboard') }}">Gestion des membres</a></li>  
+                            <li><a class="dropdown-item" href="{{ path('show_slider') }}">Slider</a></li>  
+                        </ul>
+                    </li>
+                {% endif %}
   </div>
+
+  {% if is_granted("ROLE_ADMIN") %}
+
+        <div class="text-nowrap">Vous êtes connecté {{ app.user.prenom | upper }} en tant que : <span class="text-warning">{{ app.user.roles | first }}</span></div>
+
+    {% endif %}
+
+    
 </nav>

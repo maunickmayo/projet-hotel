@@ -23,11 +23,13 @@ class MembreController extends AbstractController
        
         #1
         $membre = new Membre();
-        #2
+        
+        
+     
        $form = $this->createForm(RegisterFormType::class, $membre)
        ->handleRequest($request);
        
-       #4
+    
           if($form->isSubmitted() && $form->isValid()){
             $membre->setRoles(['ROLE_USER']);
             $membre->setCreatedAt(new DateTime());
@@ -41,7 +43,7 @@ class MembreController extends AbstractController
               $this->addFlash('success', "Vous vous êtes inscrit avec succès !");
               return $this->redirectToRoute('app_login');
           }
-       #3
+     
        return $this->render("membre/register.html.twig", [
           'form' => $form->createView()
        ]);
@@ -50,16 +52,6 @@ class MembreController extends AbstractController
 
 
    
-      /**
-     * @Route("/profile/mon-espace-perso", name="liste_membre", methods={"GET"})
-     */
-    public function showMembre(Membre $membre): Response
-    {
-        return $this->render("membre/liste_membre.html.twig", [
-            'membre' => $membre
-        ]);
-    } # end function showArticle()
-
   
 
 }

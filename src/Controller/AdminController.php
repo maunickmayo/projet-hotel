@@ -17,7 +17,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
  * @Route("/admin")  
  */
 
-class Admin extends AbstractController
+class AdminController extends AbstractController
 {
     /**
      * @Route("/tableau-membre", name="show_dashboard", methods={"GET"})
