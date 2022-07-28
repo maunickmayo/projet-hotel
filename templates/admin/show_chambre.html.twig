@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des chambre{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-6 mx-auto">
+            {% include 'include/_flashes.html.twig' %}
+        </div>
+    </div>
+
+    <div class="row mx-auto">
+        <div class="col-4"></div>
+        <div class="col-4"><a href="#" class="btn btn-warning"><i class="fa fa-trash"></i> Voir les archives</a> </div>
+         <div class="col-4"><a href="#" class="btn btn-primary">Ajouter photo de chambres</a></div>
+    </div>
+
+    <div class="row">
+        <div class="col-10 mx-auto my-4">
+
+            <h2 class="text-center">chambre</h2>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>description-longue</th>
+                    <th>description-court</th>
+                    <th>titre</th>
+                    <th>Photo</th>
+                    <th>date-enregistrement </th>
+                    <th>tarif-journalier_nuitée </th> 
+                    <th>Actions</th>   
+                </tr>
+                </thead>
+            <tbody>
+                
+                {% for chambre in chambres %} 
+                <tr>
+                 <td>{{ chambre.titre }}</td>
+                 <td>{{ chambre.descrption.court }}</td>
+                 <td>{{ chambre.descrption.longue }}</td>
+                 <td>{{ chambre.photo }}</td>
+                 <td>{{ chambre.journalier/nuitée }}</td>
+                 <td>{{ chambre.date-enregistrement }}</td>
+                 <td>{{ chambre.actions }}</td>
+                 <td>{{ chambre.createdAt | date('d/m/Y')}}</td>
+                 <td>{{ chambre.updatedAt | date('d/m/Y')}}</td>
+                  <td>
+
+
+                            <a href="#" class="text-info" title="Modifier"><i class="fa fa-edit"></i></a>
+                            <a href="#" class="text-danger" title="Archiver" onclick="return confirm('Voulez-vous archiver ?')"><i class="fa fa-trash"></i></a>
+                        </td>
+                 
+                </tr>
+                {% endfor %}
+
+ {% endblock %}
