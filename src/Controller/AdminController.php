@@ -36,7 +36,7 @@ class AdminController extends AbstractController
     }
     
     /**
-     * @Route("/ajouter-un-chambre", name="create_chambre", methods={"GET|POST"})
+     * @Route("/ajouter-une-chambre", name="show_chambre", methods={"GET|POST"})
      */
     public function createChambre(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
@@ -54,8 +54,6 @@ $chambre->setCreatedAt(new DateTime());
 $chambre->setUpdatedAt(new DateTime());
 
 
-//$chambre->setAlias($slugger->slug($chambre->getTitle()));
-
 /** @var UploadedFile $photo */
 $photo = $form->get('photo')->getData();
 
@@ -65,8 +63,6 @@ if($photo) {
     $extension = '.' . $photo->guessExtension();
     $originalFilename = pathinfo($photo->getClientOriginalName(), PATHINFO_FILENAME);
     $safeFilename = $slugger->slug($originalFilename);
-//                $safeFilename = $article->getAlias();
-
 
     $newFilename = $safeFilename . '_' . uniqid() . $extension;
 
@@ -78,9 +74,6 @@ if($photo) {
        
     }
 }  # end if($photo)
-
-
-    //$chambre->setAuthor($this->getUser());
 
     $entityManager->persist($chambre);
     $entityManager->flush();
@@ -97,7 +90,7 @@ return $this->render("admin/form/chambre.html.twig", [
 
 }# end function createArticle
 /**
-* @Route("/modifier-une-chambre_{id}", name="update_chambre", methods={"GET|POST"})
+* @Route("/modifier-une-chambre_{id}", name="show_chambre", methods={"GET|POST"})
 */
 public function updateChambre(Chambre $chambre, Request $request, EntityManagerInterface $entityManager,SluggerInterface $slugger): Response
 {  
@@ -150,7 +143,7 @@ return $this->render("admin/form/chambre.html.twig", [
 }# end function updateChambre
 
 /**
-* @Route("/archiver-une chambre_{id}", name="soft_delete_chambre", methods={"GET"})
+* @Route("/archiver-une chambre_{id}", name="show_chambre", methods={"GET"})
 */
 public function softDeleteArticle(Chambre $chambre, EntityManagerInterface $entityManager): Response
 {
@@ -164,7 +157,7 @@ return $this->redirectToRoute('show_dashboard');
 }# end function softDelete
 
 /**
-* @Route("/restaurer-une chambre_{id}", name="restore_chambre", methods={"GET"})
+* @Route("/restaurer-une chambre_{id}", name="show_chambre", methods={"GET"})
 */
 public function restoreChambre(Chambre $chambre, EntityManagerInterface $entityManager): RedirectResponse
 {
@@ -178,7 +171,7 @@ return $this->redirectToRoute('show_dashboard');
 }
 
 /**
-* @Route("/voir-les-chambres-archives", name="show_trash", methods={"GET"})
+* @Route("/voir-les-chambres-archives", name="show_chambre", methods={"GET"})
 */
 public function showTrash(EntityManagerInterface $entityManager): Response
 {
@@ -190,7 +183,7 @@ return $this->render("admin/trash/chambre_trash.html.twig", [
 }
 
 /**
-* @Route("/supprimer-une chambre_{id}", name="hard_delete_chambre", methods={"GET"})
+* @Route("/supprimer-une chambre_{id}", name="show_chambre", methods={"GET"})
 */
 public function hardDeleteArticle(Chambre $chambre, EntityManagerInterface $entityManager): RedirectResponse
 {

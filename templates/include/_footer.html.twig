@@ -1,4 +1,7 @@
-<footer class="fixed-bottom mb-4">
+{% if not is_granted("ROLE_ADMIN") %}
+
+
+ <footer class="mt-4 pt-4">
 
     <div class="container border-top">
         <div class="d-flex">
@@ -34,3 +37,4 @@
         </div>
     </div>
 </footer>
+{% endif %}

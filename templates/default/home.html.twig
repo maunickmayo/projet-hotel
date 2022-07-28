@@ -1,13 +1,36 @@
 {% extends 'base.html.twig' %}
 
-{% block Title %}Acceuil{% endblock %}
+{% block title %}Bienvenue{% endblock %}
 
 {% block body %}
-              
-              <div class="row my-4">
-                   <div class="row justify-content-center my- mx-auto col-3">
-               
-                  <div class="btn-group" role="group" aria-label="Basic example">
-                  <button type="button" class="btn btn-primary">HouseHotel | Découvrez nos chambres</button>
-           
+
+    <div class="row">
+        <div class="col-10 mx-auto my-4">
+            {% include 'include/_flashes.html.twig' %}
+        </div>
+    </div>
+
+    <h1 class="text-center my-4">Votre Hotel Restaurant</h1>
+
+    <div class="row">
+        {% for chambre in chambres %}
+
+            <div class="col-3 my-3 mx-2 mx-auto">
+                <div class="card" style="width: 18rem; height: 26rem;">
+
+                    <img width="230" height="130" src="{{ asset('uploads/' ~ chambre.photo) }}" class="card-img-top img-custom-thumbnail" alt="{{ chambre.title }}">
+
+                    <div class="card-body">
+                        <h5 class="card-title">{{ chambre.title | length > 20 ? chambre.title | slice(0,20) ~ '...' : chambre.title }}</h5>
+                        <h6 class="card-title">{{ chambre.subtitle | length > 30 ? chambre.subtitle | slice(0,30) ~ '...' : chambre.subtitle }}</h6>
+                        <p class="card-text">{{ chambre.content | length > 50 ? chambre.content | slice(0,50) ~ '...' : chambre.content | raw }}</p>
+                        <a href="{{ path('show_chambre', {'cat_alias': chambre.category.alias, 'chambre_alias': chambre.alias, 'id': chambre.id}) }}"
+                           class="btn btn-primary d-block mx-auto">Voir la chambre</a>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+
 {% endblock %}
