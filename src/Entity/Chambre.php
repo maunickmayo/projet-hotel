@@ -25,12 +25,12 @@ class Chambre
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $description_courte;
+    private $descriptionCourte;
 
     /**
      * @ORM\Column(type="text")
      */
-    private $description_longue;
+    private $descriptionLongue;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -40,12 +40,12 @@ class Chambre
     /**
      * @ORM\Column(type="integer")
      */
-    private $prix_journalier;
+    private $prixJournalier;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $date_enregistrement;
+    private $dateEnregistrement;
 
     /**
      * @ORM\Column(type="datetime")
@@ -62,6 +62,8 @@ class Chambre
      */
     private $deletedAt;
 
+
+  
     public function getId(): ?int
     {
         return $this->id;
@@ -81,24 +83,24 @@ class Chambre
 
     public function getDescriptionCourte(): ?string
     {
-        return $this->description_courte;
+        return $this->descriptionCourte;
     }
 
-    public function setDescriptionCourte(string $description_courte): self
+    public function setDescriptionCourte(string $descriptionCourte): self
     {
-        $this->description_courte = $description_courte;
+        $this->descriptionCourte = $descriptionCourte;
 
         return $this;
     }
 
     public function getDescriptionLongue(): ?string
     {
-        return $this->description_longue;
+        return $this->descriptionLongue;
     }
 
-    public function setDescriptionLongue(string $description_longue): self
+    public function setDescriptionLongue(string $descriptionLongue): self
     {
-        $this->description_longue = $description_longue;
+        $this->descriptionLongue = $descriptionLongue;
 
         return $this;
     }
@@ -117,24 +119,24 @@ class Chambre
 
     public function getPrixJournalier(): ?int
     {
-        return $this->prix_journalier;
+        return $this->prixJournalier;
     }
 
-    public function setPrixJournalier(int $prix_journalier): self
+    public function setPrixJournalier(int $prixJournalier): self
     {
-        $this->prix_journalier = $prix_journalier;
+        $this->prixJournalier = $prixJournalier;
 
         return $this;
     }
 
     public function getDateEnregistrement(): ?\DateTimeInterface
     {
-        return $this->date_enregistrement;
+        return $this->dateEnregistrement;
     }
 
-    public function setDateEnregistrement(\DateTimeInterface $date_enregistrement): self
+    public function setDateEnregistrement(\DateTimeInterface $dateEnregistrement): self
     {
-        $this->date_enregistrement = $date_enregistrement;
+        $this->dateEnregistrement = $dateEnregistrement;
 
         return $this;
     }
@@ -174,4 +176,10 @@ class Chambre
 
         return $this;
     }
+
+   
+
+    
+
+    
 }

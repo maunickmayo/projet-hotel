@@ -4,13 +4,13 @@ namespace App\Entity;
 
 use App\Repository\MembreRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=MembreRepository::class)
  */
-class Membre implements UserInterface, PasswordAuthenticatedUserInterface
+class MembreRepository implements UserInterface, PasswordAuthenticatedUserInterface
 {
     /**
      * @ORM\Id
