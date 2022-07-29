@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use DateTime;
 use App\Entity\Commande;
+use App\Form\CommandeFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,7 +29,7 @@ class CommandeController extends AbstractController
     }
 
      /**
-     * @Route("/ajouter-une-categorie", name="create_category", methods={"GET|POST"})
+     * @Route("/ajouter-une-commande", name="create_commande", methods={"GET|POST"})
      */
     public function createCommande(Request $request, SluggerInterface $slugger, EntityManagerInterface $entityManager): Response
     {

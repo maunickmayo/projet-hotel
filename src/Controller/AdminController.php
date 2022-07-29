@@ -95,7 +95,7 @@ class AdminController extends AbstractController
                 $entityManager->flush();
 
                 $this->addFlash('success', "La chambre a ete ajoutée avec succès !");
-                return $this->redirectToRoute('chambre/show_chambre.html.twig');
+                return $this->redirectToRoute('show_chambre');
 
         } 
 

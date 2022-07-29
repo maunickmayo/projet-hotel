@@ -68,6 +68,12 @@ class Commande
      */
     private $deletedAt;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Chambre::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $chambre;
+
     
     public function getId(): ?int
     {
@@ -93,7 +99,7 @@ class Commande
 
     public function setDateDepart(\DateTimeInterface $dateDepart): self
     {
-        $this->date_depart = $dateDepart;
+        $this->dateDepart = $dateDepart;
 
         return $this;
     }
@@ -105,7 +111,7 @@ class Commande
 
     public function setPrixTotal(int $prixTotal): self
     {
-        $this->prix_total = $prixTotal;
+        $this->prixTotal = $prixTotal;
 
         return $this;
     }
@@ -202,6 +208,18 @@ class Commande
     public function setDeletedAt(?\DateTimeInterface $deletedAt): self
     {
         $this->deletedAt = $deletedAt;
+
+        return $this;
+    }
+
+    public function getChambre(): ?Chambre
+    {
+        return $this->chambre;
+    }
+
+    public function setChambre(?Chambre $chambre): self
+    {
+        $this->chambre = $chambre;
 
         return $this;
     }

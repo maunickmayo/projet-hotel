@@ -28,25 +28,26 @@
                     <th>Description(courte)</th>
                     <th>Description(longue)</th>
                     <th>Photo</th>
-                    <th>Prix 
-                    (journalier/nuitée)</th>
+                    <th>Prix(journalier/nuitée)</th>
                     <th>Date Enregistrement</th> 
+                    <th>Modifié le</th> 
                     <th>Actions</th>   
                 </tr>
                 </thead>
                 <tbody>
                 
-                {% for chambres in chambres %} 
+                {% for chambre in chambres %} 
                 <tr>
                  <td>{{ chambre.id }}</td>
                  <td>{{ chambre.descriptionLongue}}</td>
                  <td>{{ chambre.descriptionCourte}}</td>
                  <td>{{ chambre.photo }}</td>
                  <td>{{ chambre.prixJournalier }}</td>
-                 <td>{{ slider.createdAt | date('d/m/Y')}}</td>
-                 <td>{{ slider.updatedAt | date('d/m/Y')}}</td>
+                 <td>{{ chambre.createdAt | date('d/m/Y')}}</td>
+                 <td>{{ chambre.updatedAt | date('d/m/Y')}}</td>
                   <td>
-                            <a href="#" class="text-info" title="Rechercher"><i class="fa fa-edit"></i></a>
+                  {# ≈ <img src="{{ asset('uploads/' ~ chambre.photo) }}" class="img-custom" alt="{{chambre.descriptionCourte }}"> #}
+                            <a href="#" class="text-info" title="Rechercher une chambre"><i class="fa fa-search"></i></a>
                             <a href="#" class="text-info" title="Modifier une chambre"><i class="fa fa-edit"></i></a>
                             <a href="#" class="text-danger" title="Supprimer une chambre" onclick="return confirm('Voulez-vous archiver ce slider ?')"><i class="fa fa-trash"></i></a>
                         </td>

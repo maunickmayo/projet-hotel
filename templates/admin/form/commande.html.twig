@@ -13,22 +13,22 @@
 
 <div class="row">
 
-    <div  class="col-8 mx-auto">
+    <div  class="col-6 mx-auto">
     
       {{ form_start(form) }}
 
           <div class="row" >
-          
+        
                 <div class="col-6">{{ form_row(form.dateArrivee) }}</div>
                 <div class="col-6">{{ form_row(form.dateDepart) }}</div>
-                <div class="col-6">{{ form_row(form.$prenom) }}</div>
-         </div>
+                <div class="col-6">{{ form_row(form.prenom) }}</div>
+                <div class="col-6">{{ form_row(form.nom) }}</div>
+             </div>
 
-         {{ form_row(form.prixJournalier) }} 
-
-         {{ form_row(form.photo) }} 
 
       {{ form_end(form) }}
 
      </div>
+
 </div>
+{% endblock %}

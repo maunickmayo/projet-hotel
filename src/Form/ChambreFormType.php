@@ -26,7 +26,7 @@ class ChambreFormType extends AbstractType
                 'label' => 'Description(longue)'
             ])
             ->add('prixJournalier', TextType::class, [
-                'label' => false,
+                'label' => 'Prix',
                 'attr' => [
                     'placeholder' => 'Prix €'
                 ],
