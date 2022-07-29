@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Chambes {{ command.name }}{% endblock %}
+
+{% block body %}
+
+    <h1 class="text-center my-4"> command {{ command.name }}</h1>
+
+    {% if chambre is not empty %}
+
+    <div class="col-9 mx-auto mb-5">
+
+        {% for chambre in chambres %}
+            <div class="row mb-4">
+
+                <div class="col-5">
+                    <a href="#" title="voir la chambre">
+                        <img src="{{ asset('uploads/' ~ chambre.photo) }}" alt="{{ chambre.title }}" class="img-fluid rounded shadow">
+                    </a>
+                </div>
+
+                <div class="col-7">
+                    <a href="#" class="text-decoration-none text-dark">{{ chambre.title }}</a>
+                    <p class="text-muted">{{ chambre.subtitle }}</p>
+                </div>
+
+            </div>
+            <hr>
+        {% endfor %}
+
+    </div>
+    {% endif %}
+
+
+{% endblock %}
