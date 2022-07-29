@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\Chambre;
-use Doctrine\Persistence\ManagerRegistry;
+use App\Entity\Category;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Chambre>
+ * @extends ServiceEntityRepository<Category>
  *
- * @method Chambre|null find($id, $lockMode = null, $lockVersion = null)
- * @method Chambre|null findOneBy(array $criteria, array $orderBy = null)
- * @method Chambre[]    findAll()
- * @method Chambre[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Category|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Category|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Category[]    findAll()
+ * @method Category[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ChambreRepository extends ServiceEntityRepository
+class CategoryRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Chambre::class);
+        parent::__construct($registry, Category::class);
     }
 
-    public function add(Chambre $entity, bool $flush = false): void
+    public function add(Category $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class ChambreRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(Chambre $entity, bool $flush = false): void
+    public function remove(Category $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class ChambreRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return Chambre[] Returns an array of Chambre objects
+//     * @return Category[] Returns an array of Category objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -51,9 +51,10 @@ class ChambreRepository extends ServiceEntityRepository
 //            ->setMaxResults(10)
 //            ->getQuery()
 //            ->getResult()
+//        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Chambre
+//    public function findOneBySomeField($value): ?Category
 //    {
 //        return $this->createQueryBuilder('c')
 //            ->andWhere('c.exampleField = :val')

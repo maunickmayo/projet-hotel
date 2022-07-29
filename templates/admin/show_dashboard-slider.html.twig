@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Gestion des Sliders{% endblock %}
+{% block title %}Gestion des chambres{% endblock %}
 
 {% block body %}
 
-    <h1 class="text-center my-4">Slider</h1>
+    <h1 class="text-center my-4">chambre</h1>
 
     <div class="row">
         <div class="col-6 mx-auto">
@@ -13,7 +13,11 @@
     </div>
 
     <div class="row mx-auto">
-        <div class="col-4"><a href="{{ path('create-chambre') }}" class="btn btn-primary"> Voir les archives</a> </div>
+        <div class="col-4"><a href="{{ path('show-chambre') }}" class="btn btn-primary"> Voir les archives</a> </div>
+
+          <div class="col-4"><a href="{{ path('show_chambre') }}" class="btn btn-primary"> liste des membres</a> </div>
+
+
         <div class="col-4"></div>
         <div class="col-4"><a href="{{ path('show-trash') }}" class="btn btn-warning"><i class="fa fa-trash"></i> Voir les archives</a> </div>
 
@@ -22,7 +26,7 @@
     <div class="row">
         <div class="col-10 mx-auto my-4">
 
-            <h2 class="text-center">Slider</h2>
+            <h2 class="text-center">chambre</h2>
 
             <table class="table">
                 <thead>
@@ -37,16 +41,16 @@
                 </thead>
                 <tbody>
                 
-                {% for slider in sliders %} 
+                {% for chambre in chambre %} 
                 <tr>
-                 <td>{{ slider.id }}</td>
-                 <td>{{ slider.photo }}</td>
-                 <td>{{ slider.ordre }}</td>
-                 <td>{{ slider.createdAt | date('d/m/Y')}}</td>
-                 <td>{{ slider.updatedAt | date('d/m/Y')}}</td>
+                 <td>{{ chambre.id }}</td>
+                 <td>{{ chambre.photo }}</td>
+                 <td>{{ chambre.ordre }}</td>
+                 <td>{{ chambre.createdAt | date('d/m/Y')}}</td>
+                 <td>{{ chambre.updatedAt | date('d/m/Y')}}</td>
                   <td>
-                            <a href="#" class="text-info" title="Modifier le slider"><i class="fa fa-edit"></i></a>
-                            <a href="#" class="text-danger" title="Archiver le slider" onclick="return confirm('Voulez-vous archiver ce slider ?')"><i class="fa fa-trash"></i></a>
+                            <a href="#" class="text-info" title="Modifier chambre"><i class="fa fa-edit"></i></a>
+                            <a href="#" class="text-danger" title="Archiver chambre" onclick="return confirm('Voulez-vous archiver chambre ?')"><i class="fa fa-trash"></i></a>
                         </td>
                  
                 </tr>
