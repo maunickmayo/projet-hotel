@@ -30,7 +30,7 @@ class CategoryController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()) {
 
-            $category->setAlias($slugger->slug($category->getName()));
+            //$category->setAlias($slugger->slug($category->getName()));
             $category->setCreatedAt(new DateTime());
             $category->setUpdatedAt(new DateTime());
 
@@ -56,7 +56,7 @@ class CategoryController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()) {
 
-            $category->setAlias($slugger->slug($category->getName()));
+            //$category->setAlias($slugger->slug($category->getName()));
             $category->setUpdatedAt(new DateTime());
 
             $entityManager->persist($category);
@@ -91,7 +91,7 @@ class CategoryController extends AbstractController
      */
     public function restoreCategory(Category $category, EntityManagerInterface $entityManager): RedirectResponse
     {
-        $category->setDeletedAt(null);
+        //$category->setDeletedAt(null);
 
         $entityManager->persist($category);
         $entityManager->flush();
