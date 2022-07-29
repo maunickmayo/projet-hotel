@@ -5,6 +5,7 @@ namespace App\Controller;
 use DateTime;
 use App\Entity\Membre;
 use App\Entity\Chambre;
+use App\Form\ChambreFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -36,7 +37,7 @@ class AdminController extends AbstractController
     }
     
     /**
-     * @Route("/ajouter-une-chambre", name="show_chambre", methods={"GET|POST"})
+     * @Route("/ajouter-une-chambre", name="create_chambre", methods={"GET|POST"})
      */
     public function createChambre(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
@@ -79,16 +80,16 @@ if($photo) {
     $entityManager->flush();
 
     $this->addFlash('success', "La chambre est en ligne avec succès !");
-    return $this->redirectToRoute('show_dashboard');
+    return $this->redirectToRoute('show_chambre');
 
 } # end if ($form)
 
 
-return $this->render("admin/form/chambre.html.twig", [
+return $this->render("chambre/create_chambre.html.twig", [
     'form' => $form->createView()
 ]);
 
-}# end function createArticle
+}# end function createChambre
 /**
 * @Route("/modifier-une-chambre_{id}", name="show_chambre", methods={"GET|POST"})
 */

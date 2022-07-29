@@ -51,7 +51,6 @@ class ChambreRepository extends ServiceEntityRepository
 //            ->setMaxResults(10)
 //            ->getQuery()
 //            ->getResult()
-//        ;
 //    }
 
 //    public function findOneBySomeField($value): ?Chambre

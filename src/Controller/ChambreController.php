@@ -23,8 +23,7 @@ class ChambreController extends AbstractController
         ]);
         
     }
-   
-  
+    
    
 }
 

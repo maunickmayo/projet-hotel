@@ -22,9 +22,7 @@
           <a class="nav-link active" aria-current="page" href="{{ path('app_login') }}">se connecter</a>
         </li>
         {% else %}
-         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">espace perso</a>
-        </li>
+
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{{ path('app_logout') }}">se déconnecter</a>
         </li>
@@ -41,23 +39,10 @@
                 {% endif %}
 
         <li class="nav-item">
-          <a class="nav-link" href="">Slider</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ path('show_chambre') }}">Chambre</a>
-        </li>
-
-
-        <li class="nav-item">
-          <a class="nav-link" href="{{ path('show_dashboard') }}">Restaurant</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ path('show_dashboard') }}">Spa</a>
+        
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="{{ path('show_dashboard') }}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            réservation
-          </a>
+
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
             <li><a class="dropdown-item" href="show_chambre">description courte</a></li>
@@ -74,25 +59,10 @@
           <a class="nav-link" href="{{ path('show_app_avis') }}">Avis</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">L'hôtel</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="{{ path('show_app_actualite') }}">Actualités</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="show_app_contact">Contact</a>
-        </li>
-      </ul>
 
-      <ul class="navbar-nav me-2 mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Français</a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link" href="#">English</a>
-          </li>
-        </ul>
-        
+      </ul>      
     </div>
     {% if is_granted("ROLE_ADMIN") %}
                     <li class="nav-item dropdown">
@@ -104,9 +74,7 @@
                               <li><a class="dropdown-item" href="{{ path('show_chambre') }}">ajouter une chambre</a></li> 
 
                             <li><a class="dropdown-item" href="{{ path('show_chambre') }}">modifier une chambre</a></li> 
-
-
-                            <li><a class="dropdown-item" href="#">Slider</a></li>  
+  
                         </ul>
                     </li>
                 {% endif %}

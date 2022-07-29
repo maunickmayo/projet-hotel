@@ -2,8 +2,8 @@
 
 namespace App\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ChambreRepository;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=ChambreRepository::class)
@@ -41,11 +41,6 @@ class Chambre
      * @ORM\Column(type="integer")
      */
     private $prixJournalier;
-
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $dateEnregistrement;
 
     /**
      * @ORM\Column(type="datetime")
@@ -129,18 +124,7 @@ class Chambre
         return $this;
     }
 
-    public function getDateEnregistrement(): ?\DateTimeInterface
-    {
-        return $this->dateEnregistrement;
-    }
-
-    public function setDateEnregistrement(\DateTimeInterface $dateEnregistrement): self
-    {
-        $this->dateEnregistrement = $dateEnregistrement;
-
-        return $this;
-    }
-
+    
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
