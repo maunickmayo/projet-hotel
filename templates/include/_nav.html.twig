@@ -1,4 +1,4 @@
- <nav class="navbar navbar-expand-lg navbar-dark bg-primary text-white">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="{{ path('default_home') }}">HouseHotel</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,75 +12,72 @@
 
         {% if not app.user %}
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{ path('membre_register') }}">s'inscrire</a>
+          <a class="nav-link active" aria-current="page" href="#">s'inscrire</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{ path('app_login') }}">Connexion</a>
+          <a class="nav-link active" aria-current="page" href="{{ path('app_login') }}">se connecter</a>
         </li>
         {% else %}
-
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{ path('app_logout') }}">Déconnexionr</a>
-        </li>
-        {% endif %}
-       
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Restaurant</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Spa</a>
-        </li>
-        {% if not is_granted("ROLE_ADMIN") %}
-        <li class="nav-item dropdown">
-          <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            réservation
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="{{ path('create_commande') }}">Reserver une chambre</a></li>
-            
-          </ul>
-        </li>
-        {% endif %}
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Avis</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="#">L'hôtel</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Actualités</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Contact</a>
-        </li>
-      </ul>
-     {% if not is_granted("ROLE_ADMIN") %}
-      <ul class="navbar-nav me-2 mb-2 mb-lg-0">
          <li class="nav-item">
-          <a class="nav-link active" href="#">Français</a>
-         </li>
-         <li class="nav-link active">
-          <a class="nav-link active" href="#">English</a>
-          </li>
-        </ul>
+          <a class="nav-link active" aria-current="page" href="#">espace perso</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{ path('app_logout') }}">se déconnecter</a>
+        </li>
         {% endif %}
-    </div>
-    {% if is_granted("ROLE_ADMIN") %}
-                
-                    <li class="nav-link active dropdown">
-                        <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        {% if is_granted("ROLE_ADMIN") %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Espace Admin
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{{ path('show_dashboard') }}">Gestion des membres</a></li>  
-                            <li><a class="dropdown-item" href="{{ path('show_chambre') }}">Gestion des Chambres</a></li>  
-                            <li><a class="dropdown-item" href="{{ path('show_commande') }}">Gestion des Commandes</a></li>  
-                            <li><a class="dropdown-item" href="{{ path('show_slider') }}">Gestion des Sliders</a></li>  
+                            <li><a class="dropdown-item" href="{{ path('show_dashboard') }}">Dashboard (liste des membres) </a></li>  
                         </ul>
                     </li>
-                   
                 {% endif %}
-  </div>
 
-    
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">Chambre</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Restaurant</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Spa</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            réservation
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Reserver une chambre</a></li>
+            <li><a class="dropdown-item" href="#">#</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">#</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Avis</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">L'hôtel</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Actualités</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav me-2 mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Français</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="#">English</a>
+          </li>
+        </ul>
+    </div>
+  </div>
 </nav>
