@@ -35,7 +35,7 @@
                             Espace Admin
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{{ path('show_dashboard') }}">Liste Des membres </a></li>  
+                            <li><a class="dropdown-item" href="{{ path('show_chambre') }}">Liste Des membres </a></li>  
                         </ul>
                     </li>
                 {% endif %}
@@ -60,7 +60,12 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-            <li><a class="dropdown-item" href="#">description</a></li>
+            <li><a class="dropdown-item" href="show_chambre">description courte</a></li>
+             <li><a class="dropdown-item" href="show_chambre">description longue</a></li>
+              <li><a class="dropdown-item" href="show_chambre"> action</a></li>
+               <li><a class="dropdown-item" href="show_chambre">date enregistrement</a></li>
+                <li><a class="dropdown-item" href="show_chambre">photo</a></li>
+                <li><a class="dropdown-item" href="show_chambre">tarif journalier nuitée</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">#</a></li>
           </ul>
@@ -75,7 +80,7 @@
           <a class="nav-link" href="{{ path('show_app_actualite') }}">Actualités</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="app_contact">Contact</a>
+          <a class="nav-link" href="show_app_contact">Contact</a>
         </li>
       </ul>
 
