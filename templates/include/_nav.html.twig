@@ -1,4 +1,4 @@
- <nav class="navbar navbar-expand-lg navbar-dark bg-primary text-white">
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="{{ path('default_home') }}">HouseHotel</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -6,9 +6,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+     
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{{ path('default_home') }}">Accueil</a>
         </li>
+       
 
         {% if not app.user %}
         <li class="nav-item">
@@ -20,9 +22,10 @@
         {% else %}
 
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{ path('app_logout') }}">Déconnexionr</a>
+          <a class="nav-link active" aria-current="page" href="{{ path('app_logout') }}">Déconnexion</a>
         </li>
         {% endif %}
+
        
         <li class="nav-item">
           <a class="nav-link active" href="#">Restaurant</a>
@@ -30,17 +33,7 @@
         <li class="nav-item">
           <a class="nav-link active" href="#">Spa</a>
         </li>
-        {% if not is_granted("ROLE_ADMIN") %}
-        <li class="nav-item dropdown">
-          <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            réservation
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="{{ path('create_commande') }}">Reserver une chambre</a></li>
-            
-          </ul>
         </li>
-        {% endif %}
         <li class="nav-item">
           <a class="nav-link active" href="#">Avis</a>
         </li>
@@ -53,7 +46,19 @@
         <li class="nav-item">
           <a class="nav-link active" href="#">Contact</a>
         </li>
-      </ul>
+         </ul>
+        
+      
+      
+        {% if not is_granted("ROLE_ADMIN") %}
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            réservation
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{{ path('create_commande') }}">Reserver une chambre</a></li>
+              {% endif %}
+         </ul>
      {% if not is_granted("ROLE_ADMIN") %}
       <ul class="navbar-nav me-2 mb-2 mb-lg-0">
          <li class="nav-item">
@@ -74,8 +79,8 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="{{ path('show_dashboard') }}">Gestion des membres</a></li>  
                             <li><a class="dropdown-item" href="{{ path('show_chambre') }}">Gestion des Chambres</a></li>  
-                            <li><a class="dropdown-item" href="{{ path('show_commande') }}">Gestion des Commandes</a></li>  
-                            <li><a class="dropdown-item" href="{{ path('show_slider') }}">Gestion des Sliders</a></li>  
+                            <li><a class="dropdown-item" href="#">Gestion des Commandes</a></li>  
+                            <li><a class="dropdown-item" href="#">Gestion des Sliders</a></li>  
                         </ul>
                     </li>
                    
